@@ -12,9 +12,11 @@
 // https://en.wikipedia.org/wiki/Subset_sum_problem
 // This is NP-complete.
 //
-// Solution: Split the values into two halves, and enumerate all subset sums in each (2^(N/2) values). 
-// If we can find a subset with sum being zero in either of these two halves, return true.
-// Otherwise, iterate through one of them, and try to find the opposite number in the other set.
+// Solution: 
+// 1. Subtract all values by the mean.
+// 2. Split the values into two halves, and enumerate all subset sums in each (2^(N/2) values). 
+// 3.1 If we can find a subset with sum being zero in either of these two halves, return true.
+// 3.2 Otherwise, iterate through one of them, and try to find the opposite number in the other set.
 // Time and space complexity are both 2^(N/2)
 class Solution {
 public:
@@ -64,8 +66,8 @@ public:
         if(genSums(A, half, A.size(), sums2)){
             return true;
         }
-        sums1.erase(half_sum1);
-        sums1.erase(0);
+        sums1.erase(half_sum1); // we want a strict subset
+        sums1.erase(0); // we want a non-empty subset
         for(auto v1 : sums1) {
             if(sums2.find(-v1) != sums2.end()){
                 return true;
