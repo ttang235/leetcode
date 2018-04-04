@@ -3,7 +3,8 @@
 // m[s][i][j] is the min of the following 3 sets of values:
 // 1. m[s-1][i][j]
 // 2. price[i][x] + m[s-1][x][j] for each edge i --> x
-// 2. price[x][j] + m[s-1][i][x] for each edge x --> j
+// 3. price[x][j] + m[s-1][i][x] for each edge x --> j
+// Time complexity: O(V^3 * E)
 class Solution {
 public:
     int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int K) {
