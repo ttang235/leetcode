@@ -1,4 +1,4 @@
-https://leetcode.com/contest/weekly-contest-82/problems/goat-latin/
+# https://leetcode.com/contest/weekly-contest-82/problems/goat-latin/
 class Solution(object):
     def conv(self, w, idx):
         assert(len(w) > 0)
