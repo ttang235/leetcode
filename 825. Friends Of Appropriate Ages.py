@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/friends-of-appropriate-ages/description/
 class Solution(object):
     def numFriendRequests(self, ages):
         """
